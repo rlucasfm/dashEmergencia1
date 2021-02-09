@@ -88,7 +88,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Turmas:</h6>
                         <a class="collapse-item" href="/turmas/criarturma">Criar turma</a>
-                        <a class="collapse-item" href="/">Listar turmas</a>                        
+                        <a class="collapse-item" href="/turmas/listarturmas">Listar turmas</a>                        
                     </div>
                 </div>
             </li>
