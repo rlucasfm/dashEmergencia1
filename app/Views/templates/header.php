@@ -50,7 +50,7 @@
                 <div class="sidebar-brand-icon">
                     <i class="fas fa-desktop"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">EudesRo <sup>up</sup></div>
+                <div class="sidebar-brand-text mx-3">Emergencia1 <sup>up</sup></div>
             </a>
 
             <!-- Sidebar Toggler (Sidebar) -->
@@ -73,23 +73,22 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Clientes
+                Turmas
             </div>
 
             <!-- Nav Item - Cadastro de clientes -->
-            <li class="nav-item" id="clientes">
+            <li class="nav-item" id="turmas">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Gerenciar clientes</span>
+                    <span>Gerenciar turmas</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Clientes:</h6>
-                        <a class="collapse-item" href="/clientes/cadastro">Cadastro</a>
-                        <a class="collapse-item" href="/clientes/listarClientes">Listar operações</a>
-                        <a class="collapse-item" href="/clientes/importar">Importar tabela</a>                        
+                        <h6 class="collapse-header">Turmas:</h6>
+                        <a class="collapse-item" href="/turmas/criarturma">Criar turma</a>
+                        <a class="collapse-item" href="/">Listar turmas</a>                        
                     </div>
                 </div>
             </li>
@@ -98,25 +97,25 @@
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <div class="sidebar-heading">
-                Listas
-            </div>
+            <!-- <div class="sidebar-heading">
+                Matrículas
+            </div> -->
 
             <!-- Nav Item - Gerenciamento de Listas -->
-            <li class="nav-item" id="listas">
+            <!-- <li class="nav-item" id="matriculas">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Gerenciar Listas</span>
+                    <span>Matrículas</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Listas:</h6>
-                        <a class="collapse-item" href="/Listas/novaLista">Gerenciamento de Listas</a>
-                        <a class="collapse-item" href="/Listas/relatorios">Relatório de Envio</a>                        
+                        <h6 class="collapse-header">Matriculas:</h6>
+                        <a class="collapse-item" href="/">Gerenciamento de Listas</a>
+                        <a class="collapse-item" href="/">Relatório de Envio</a>                        
                     </div>
                 </div>
-            </li>
+            </li> -->
             
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">            
@@ -124,8 +123,8 @@
             <!-- Sidebar Message -->
             <div class="sidebar-card">
                 <img class="sidebar-card-illustration mb-2" src="/static/img/undraw_rocket.svg" alt="">
-                <p class="text-center mb-2"><strong>EudesRo</strong> oferece os melhores sistemas, quer saber mais?</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Saiba mais!</a>
+                <p class="text-center mb-2"><strong>RL</strong> oferece os melhores sistemas, quer saber mais?</p>
+                <a class="btn btn-success btn-sm" href="https://richardlucas.com.br">Saiba mais!</a>
             </div>
 
         </ul>
@@ -145,7 +144,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <h3 class="mr-auto mt-3">EudesRo</h3>
+                    <h3 class="mr-auto mt-3"><?= esc($title) ?></h3>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">                        
@@ -171,7 +170,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="small text-gray-500">15 de Janeiro, 2021</div>
+                                        <div class="small text-gray-500">09 de fevereiro, 2021</div>
                                         <span class="font-weight-bold">Ínicio do desenvolvimento da nova plataforma!</span>
                                     </div>
                                 </a>
