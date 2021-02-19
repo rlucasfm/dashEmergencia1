@@ -16,11 +16,18 @@
                         <small id="nomeHelp" class="form-text text-muted">Este é o nome da turma</small>
                     </div>
                 </div>  
-                <div class="col-sm-4">
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="numturma">Número da turma</label>
+                        <input type="text" name="numturma" id="numturma" class="form-control" required>
+                        <small>Número de identificação para a turma</small>
+                    </div>
+                </div> 
+                <div class="col-sm-2">
                     <div class="form-group">
                         <label for="cargahoraria">Carga horária</label>
                         <input type="number" name="cargahoraria" id="cargahoraria" class="form-control" required>
-                        <small>Apenas números</small>
+                        <small>Apenas números, em horas</small>
                     </div>
                 </div>  
                 <div class="col-sm-4">

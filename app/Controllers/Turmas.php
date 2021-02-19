@@ -27,11 +27,13 @@ class Turmas extends BaseController
             $nome = $this->request->getPost('nome') ?? 'Sem nome';
             $cargahoraria = $this->request->getPost('cargahoraria') ?? 0;
             $local = $this->request->getPost('local') ?? 'Vazio';  
+            $numturma = $this->request->getPost('numturma') ?? 'Vazio';
             
             $turmaData = [
                 "nome" => $nome,
                 "cargahoraria" => $cargahoraria,
-                "local" => $local
+                "local" => $local,
+                'numturma' => $numturma
             ];
 
             try {

@@ -15,6 +15,7 @@
                 <tr>                                                              
                     <th scope="col">ID</th>
                     <th scope="col">Nome da turma</th>
+                    <th scope="col">Número da turma</th>
                     <th scope="col">Carga horária</th>
                     <th scope="col">Local da turma</th>
                 </tr>
@@ -37,7 +38,8 @@ let tableData = [
             'id': '<?= esc($turma->id) ?>',
             'nome': '<?= esc($turma->nome) ?>',
             'cargahoraria': '<?= esc($turma->cargahoraria) ?>', 
-            'local': '<?= esc($turma->local) ?>'
+            'local': '<?= esc($turma->local) ?>',
+            'numturma': '<?= esc($turma->numturma) ?>'
         },
     <?php endforeach ?>
 ]
@@ -120,8 +122,9 @@ function buildTable(){
         var row =  `<tr>
                     <td>${tabList[i].id}</td>
                     <td>${tabList[i].nome}</td>
+                    <td>${tabList[i].numturma}</td>
                     <td>${tabList[i].cargahoraria}</td>
-                    <td>${tabList[i].local}</td>
+                    <td>${tabList[i].local}</td>                    
                     `
         table.append(row)
     }
