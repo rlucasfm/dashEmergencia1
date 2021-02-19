@@ -4,6 +4,11 @@ use App\Models\Turma;
 
 class Turmas extends BaseController
 {
+    /** 
+     * @method void
+     * 
+     * Página de criação de turmas. Envio de informações para view     
+     */
     public function criarturma()
     {
         $data = [
@@ -16,8 +21,73 @@ class Turmas extends BaseController
 		echo view('templates/header', $data);
 		echo view('turmas/cadastrar', $data);
 		echo view('templates/footer', $data);
+    }   
+
+    /** 
+     * @method void
+     * 
+     * Página de listagem de turmas. Envio de informações para view     
+     */
+    public function listarTurmas(){
+        $turma = new Turma();
+
+        try {
+            $turmas = $turma->listar();
+        } catch (\Exception $err) {
+            session()->setFlashdata('errorMsg', 'Houve um erro... '.$err->getMessage());
+            return redirect()->to(ROOTFOLDER . '/');
+        }
+
+        $data = [
+			"title" => "Listar turmas - Emergencia1",
+			"name" => session()->get('name'),
+			"menuActiveID" => "turmas",
+			"errorMsg" => session()->get('errorMsg'),
+			"successMsg" => session()->get('successMsg'),
+            "turmas" => $turmas
+		];
+
+		echo view('templates/header', $data);
+		echo view('turmas/listar', $data);
+		echo view('templates/footer', $data);
     }
 
+     /** 
+     * @method void
+     * 
+     * Página de detalhamento de turmas. Envio de informações para view     
+     */
+    public function detalhes($id_turma)
+    {
+        $turma = new Turma();
+
+        try {
+            $detalhes_turma = $turma->detalhes($id_turma);
+        } catch (\Exception $err) {
+            session()->setFlashdata('errorMsg', 'Houve um erro... '.$err->getMessage());
+            return redirect()->to(ROOTFOLDER . '/');
+        }
+
+        $data = [
+			"title" => "Detalhe da turma - Emergencia1",
+			"name" => session()->get('name'),
+			"menuActiveID" => "turmas",
+			"errorMsg" => session()->get('errorMsg'),
+			"successMsg" => session()->get('successMsg'),
+            "detalhes" => $detalhes_turma,
+            "id_turma" => $id_turma
+		];
+		echo view('templates/header', $data);
+		echo view('turmas/detalhes', $data);
+		echo view('templates/footer', $data);
+    }
+    // ==============------- COMUNICAÇÃO COM OS MODELOS -------==============
+
+    /** 
+     * @method void
+     * 
+     * Página de criação de turmas. Recebe informações da view e orienta para Model    
+     */
     public function cadastrarturmaDB()
     {
         // Se a requisição for POST...
@@ -44,29 +114,40 @@ class Turmas extends BaseController
             }
         }
         return redirect()->to('criarturma');
-    }
+    }   
 
-    public function listarTurmas(){
-        $turma = new Turma();
+    /** 
+     * @method void
+     * 
+     * Página de edição de turmas. Recebe informações da view e orienta para Model    
+     */
+    public function atualizarTurma()
+    {
+        // Se a requisição for POST...
+        if($this->request->getMethod() == "post"){
+            $turma = new Turma();
 
-        try {
-            $turmas = $turma->listar();
-        } catch (\Throwable $th) {
-            session()->setFlashdata('errorMsg', 'Houve um erro... '.$err->getMessage());
-            return redirect()->to('/');
+            $nome = $this->request->getPost('nome') ?? 'Sem nome';
+            $cargahoraria = $this->request->getPost('cargahoraria') ?? 0;
+            $local = $this->request->getPost('local') ?? 'Vazio';  
+            $numturma = $this->request->getPost('numturma') ?? 'Vazio';
+            $id_turma = $this->request->getPost('idturma') ?? 'Vazio';
+            
+            $turmaData = [
+                "id" => $id_turma,
+                "nome" => $nome,
+                "cargahoraria" => $cargahoraria,
+                "local" => $local,
+                'numturma' => $numturma
+            ];
+
+            try {
+               $response = $turma->atualizar($turmaData);
+               session()->setFlashdata('successMsg', $response);
+            } catch (\Exception $err) {
+                session()->setFlashdata('errorMsg', 'Houve um erro... '.$err->getMessage());
+            }
         }
-
-        $data = [
-			"title" => "Listar turmas - Emergencia1",
-			"name" => session()->get('name'),
-			"menuActiveID" => "turmas",
-			"errorMsg" => session()->get('errorMsg'),
-			"successMsg" => session()->get('successMsg'),
-            "turmas" => $turmas
-		];
-
-		echo view('templates/header', $data);
-		echo view('turmas/listar', $data);
-		echo view('templates/footer', $data);
+        return redirect()->to('listarTurmas');
     }
 }

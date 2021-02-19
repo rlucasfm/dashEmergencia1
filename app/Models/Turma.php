@@ -8,7 +8,7 @@ class Turma extends Model
     protected $primaryKey       = 'id';
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
-    protected $allowedFields    = ['id', 'nome', 'cargahoraria', 'local'];
+    protected $allowedFields    = ['id', 'nome', 'cargahoraria', 'local', 'numturma'];
     protected $useTimestamps    = false;
     protected $skipValidation   = true;
 
@@ -30,6 +30,24 @@ class Turma extends Model
            return $this->findAll();
         } catch (\Exception $th) {
             throw $th;
+        }        
+    }
+
+    public function detalhes($id_turma){
+        try {
+           return $this->find($id_turma);
+        } catch (\Exception $th) {
+            throw $th;
+        }        
+    }
+
+    public function atualizar($data)
+    {
+        try {
+            $this->save($data);
+            return('Turma atualizada!');
+        } catch (\Exception $err) {
+            throw $err;
         }        
     }
 }

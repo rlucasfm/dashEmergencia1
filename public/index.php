@@ -11,6 +11,9 @@ unset($minPHPVersion);
 // Path to the front controller (this file)
 define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
 
+// Path to the root folder - Absolutify references (Without / on end)
+define('ROOTFOLDER', '');
+
 // Location of the Paths config file.
 // This is the line that might need to be changed, depending on your folder structure.
 $pathsPath = realpath(FCPATH . '../app/Config/Paths.php');

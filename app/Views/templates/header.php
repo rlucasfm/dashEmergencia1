@@ -18,27 +18,19 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="/static/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="<?= ROOTFOLDER ?>/static/css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- CSS MAIN particular -->
-    <link href="/static/css/main.css" rel="stylesheet">
-
-    <!-- CSS para Impressão -->
-    <link rel="stylesheet" type="text/css" href="/static/css/print.min.css">
+    <link href="<?= ROOTFOLDER ?>/static/css/main.css" rel="stylesheet">
 
     <!-- LOAD JQUERY FIRST -->
-    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="<?= ROOTFOLDER ?>/static/vendor/jquery/jquery.min.js"></script>
     <!-- Bootstrap core JavaScript-->    
-    <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Plugin própria para Mascaras -->
-    <script src="/static/js/mask.js"></script>
-    <!-- Lib para impressão -->
-    <script src="/static/js/print.min.js"></script>
+    <script src="<?= ROOTFOLDER ?>/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </head>
 
 <body id="page-top" class="sidebar-toggled">
-
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -46,7 +38,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= ROOTFOLDER ?>/">
                 <div class="sidebar-brand-icon">
                     <i class="fas fa-desktop"></i>
                 </div>
@@ -63,7 +55,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item" id="dash">
-                <a class="nav-link" href="/">
+                <a class="nav-link" href="<?= ROOTFOLDER ?>/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Início</span></a>
             </li>
@@ -76,7 +68,7 @@
                 Turmas
             </div>
 
-            <!-- Nav Item - Cadastro de clientes -->
+            <!-- Nav Item - Gerenciamento de turmas -->
             <li class="nav-item" id="turmas">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
@@ -87,8 +79,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Turmas:</h6>
-                        <a class="collapse-item" href="/turmas/criarturma">Criar turma</a>
-                        <a class="collapse-item" href="/turmas/listarturmas">Listar turmas</a>                        
+                        <a class="collapse-item" href="<?= ROOTFOLDER ?>/turmas/criarturma">Criar turma</a>
+                        <a class="collapse-item" href="<?= ROOTFOLDER ?>/turmas/listarturmas">Listar turmas</a>                        
                     </div>
                 </div>
             </li>
@@ -97,12 +89,12 @@
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <!-- <div class="sidebar-heading">
+            <div class="sidebar-heading">
                 Matrículas
-            </div> -->
+            </div>
 
             <!-- Nav Item - Gerenciamento de Listas -->
-            <!-- <li class="nav-item" id="matriculas">
+            <li class="nav-item" id="matriculas">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
@@ -115,14 +107,14 @@
                         <a class="collapse-item" href="/">Relatório de Envio</a>                        
                     </div>
                 </div>
-            </li> -->
+            </li>
             
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">            
 
             <!-- Sidebar Message -->
             <div class="sidebar-card">
-                <img class="sidebar-card-illustration mb-2" src="/static/img/undraw_rocket.svg" alt="">
+                <img class="sidebar-card-illustration mb-2" src="<?= ROOTFOLDER ?>/static/img/undraw_rocket.svg" alt="">
                 <p class="text-center mb-2"><strong>RL</strong> oferece os melhores sistemas, quer saber mais?</p>
                 <a class="btn btn-success btn-sm" href="https://richardlucas.com.br">Saiba mais!</a>
             </div>
@@ -137,7 +129,7 @@
             <div id="content" class="overflow-hidden">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 /static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -186,7 +178,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= esc($name); ?></span>
                                 <img class="img-profile rounded-circle"
-                                    src="/static/img/undraw_profile.svg">
+                                    src="<?= ROOTFOLDER ?>/static/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

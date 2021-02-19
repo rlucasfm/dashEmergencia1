@@ -121,7 +121,7 @@ function buildTable(){
         //Usando "Template Litterals" para fazer as linhas
         var row =  `<tr>
                     <td>${tabList[i].id}</td>
-                    <td>${tabList[i].nome}</td>
+                    <td><a href='detalhes/${tabList[i].id}'>${tabList[i].nome}</a></td>
                     <td>${tabList[i].numturma}</td>
                     <td>${tabList[i].cargahoraria}</td>
                     <td>${tabList[i].local}</td>                    
