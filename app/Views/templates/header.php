@@ -27,6 +27,8 @@
     <script src="<?= ROOTFOLDER ?>/static/vendor/jquery/jquery.min.js"></script>
     <!-- Bootstrap core JavaScript-->    
     <script src="<?= ROOTFOLDER ?>/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- MASK MIN LIBRARY OWN -->
+    <script src="<?= ROOTFOLDER ?>/static/js/mask.js"></script>
 
 </head>
 
@@ -102,9 +104,9 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Matriculas:</h6>
-                        <a class="collapse-item" href="/">Gerenciamento de Listas</a>
-                        <a class="collapse-item" href="/">Relatório de Envio</a>                        
+                        <h6 class="collapse-header">Gerenciar Alunos:</h6>
+                        <a class="collapse-item" href="<?= ROOTFOLDER ?>/matriculas/matricula">Matricular</a>                                             
+                        <a class="collapse-item" href="<?= ROOTFOLDER ?>/matriculas/buscar">Buscar aluno</a> 
                     </div>
                 </div>
             </li>

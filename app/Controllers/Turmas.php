@@ -1,6 +1,7 @@
 <?php namespace App\Controllers;
 
 use App\Models\Turma;
+use App\Models\Aluno;
 
 class Turmas extends BaseController
 {
@@ -60,9 +61,17 @@ class Turmas extends BaseController
     public function detalhes($id_turma)
     {
         $turma = new Turma();
+        $aluno = new Aluno();
 
         try {
             $detalhes_turma = $turma->detalhes($id_turma);
+        } catch (\Exception $err) {
+            session()->setFlashdata('errorMsg', 'Houve um erro... '.$err->getMessage());
+            return redirect()->to(ROOTFOLDER . '/');
+        }
+
+        try {
+            $detalhes_alunos = $aluno->listar($id_turma);
         } catch (\Exception $err) {
             session()->setFlashdata('errorMsg', 'Houve um erro... '.$err->getMessage());
             return redirect()->to(ROOTFOLDER . '/');
@@ -75,7 +84,8 @@ class Turmas extends BaseController
 			"errorMsg" => session()->get('errorMsg'),
 			"successMsg" => session()->get('successMsg'),
             "detalhes" => $detalhes_turma,
-            "id_turma" => $id_turma
+            "id_turma" => $id_turma,
+            "alunos" => $detalhes_alunos
 		];
 		echo view('templates/header', $data);
 		echo view('turmas/detalhes', $data);
